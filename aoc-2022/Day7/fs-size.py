@@ -1,3 +1,5 @@
+# This day could've been done better, you shouldn't need to use so many programs
+
 # Creates a tree structure of the directories, omitting files
 class Directory():
     def __init__(self, dir, parentDir):
