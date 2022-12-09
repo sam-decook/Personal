@@ -11,7 +11,6 @@ def visibleLeft(coor, lines):
     
     return num
 
-# I'm not actually sure how these are working (with num += 1 being before/after the if)
 def visibleRight(coor, lines):
     i, j = coor
     height = lines[i][j]
@@ -56,6 +55,7 @@ def scenicScore(coor, lines):
     return (visibleLeft(coor, lines)  * visibleRight(coor, lines) * 
             visibleAbove(coor, lines) * visibleBelow(coor, lines))
 
+
 input = open("aoc-2022\Day8\input.txt", "r")
 lines = input.readlines()
 for i in range(len(lines)): lines[i] = lines[i].strip()
@@ -64,9 +64,7 @@ highestScore = 0
 for i in range(1, len(lines)-1): #start on second and exclude last row, 
     for j in range(len(lines[0])):
         score = scenicScore((i,j), lines)
-        if score > highestScore: 
-            highestScore = score
-            print(str(i) + "," + str(j) + " " + lines[i][j] + " " + str(score))
+        if score > highestScore: highestScore = score
         
 print(str(len(lines[0])))
 print(highestScore)
