@@ -7,7 +7,8 @@ lines = input.readlines()
 cals = 0
 calsList = []
 
-# Add each group of calories (separated by white-space)
+# Each group of calories is separated by white-space
+# Add the lines together, and then append the sum to the list
 for line in lines:
     if line != '\n':
         cals += int(line.strip())
