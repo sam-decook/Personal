@@ -1,2 +1,4 @@
+aoc*/**/input.txt
+
 circuit_sim/target/
 circuit_sim/debug/
