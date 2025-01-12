@@ -45,25 +45,35 @@ func initFunc(cmd *cobra.Command, args []string) {
 	f, err := os.Create(name + ".go")
 	f.Chmod(0755)
 
-	fmt.Fprintf(f, "package %s\n%s", name, template)
+	// Use this once the cli is working
+	// fmt.Fprintf(f, "package %s\n%s", name, template)
+	fmt.Fprintf(f, "package main\n%s", template)
 }
 
 const template = `
 import (
 	"bufio"
+	"fmt"
 	"os"
 )
 
-func Part1(file string) int {
+func main() {
+	fmt.Println(Part1("test.txt"))
+}
+
+func parse(file string) {
 	f, _ := os.Open(file)
 	scanner := bufio.NewScanner(f)
+}
+
+func Part1(file string) int {
+	parse(file)
 
 	return 0
 }
 
 func Part2(file string) int {
-	f, _ := os.Open(file)
-	scanner := bufio.NewScanner(f)
+	parse(file)
 
 	return 0
 }
